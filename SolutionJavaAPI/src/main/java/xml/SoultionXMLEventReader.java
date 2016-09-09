@@ -12,7 +12,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.events.XMLEvent;
 
-public class SoultionXMLReader {
+public class SoultionXMLEventReader {
 	public static void main(String[] args) {
 		String filename = "c:\\text\\bookxml.txt";
 		XMLInputFactory factory = XMLInputFactory.newInstance();

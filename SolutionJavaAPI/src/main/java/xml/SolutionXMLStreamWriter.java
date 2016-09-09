@@ -7,7 +7,7 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-public class SolutionXMLWriter {
+public class SolutionXMLStreamWriter {
 
 	public static void main(String[] args) {
 		XMLOutputFactory xof = XMLOutputFactory.newInstance();
