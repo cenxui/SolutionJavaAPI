@@ -14,7 +14,7 @@ import javax.xml.soap.SOAPMessage;
 
 import org.w3c.dom.NodeList;
 
-public class SolutionSoapReader {
+public class SolutionReadSoap {
 
 	public static void main(String[] args) {
 		MessageFactory messageFactor = null;
