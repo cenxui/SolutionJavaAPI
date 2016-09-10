@@ -1,5 +1,7 @@
 package xml;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.xml.soap.MessageFactory;
@@ -13,7 +15,7 @@ import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import javax.xml.soap.SOAPPart;
 
-public class SolutionSOAP {
+public class SolutionSOAPWriter {
 
 	public static void main(String[] args) {
 		SOAPConnectionFactory soapConnectionFactory = null;
@@ -64,9 +66,16 @@ public class SolutionSOAP {
 		headers.addHeader("SOAPAction", serverURI + "VerifyEmail");
 
 		soapMessage.saveChanges();
-
+		
 		System.out.print("Request SOAP Message:");
-		soapMessage.writeTo(System.out);
+		
+		File file = new File("c:\\text\\soap.txt");
+		if (file.exists() == false) {
+			file.createNewFile();
+		}
+		FileOutputStream fileOutputStream = new FileOutputStream(file);
+		
+		soapMessage.writeTo(fileOutputStream);
 		System.out.println();
 
 		return soapMessage;
