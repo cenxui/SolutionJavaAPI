@@ -3,7 +3,21 @@ package string;
 public class SolutionString {
 
 	public static void main(String[] args) {
+		compare();
+	}
+	
+	/**
+	 * nature order
+	 * i campare string len1 - len2
+	 * ii compare char order char1 - char2 
+	 */
 
+	private static void compare() {
+		String a = "Hello";
+		String b = "Hi";
+		
+		System.out.println(a.compareTo(b));
+		System.out.println(b.compareTo(a));
 	}
 	
 	private static void hashCodeString() {
