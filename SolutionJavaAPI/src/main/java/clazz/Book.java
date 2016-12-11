@@ -23,6 +23,14 @@ public class Book {
 		
 //		Class<?> c = Runtime.class.getClass(); //error
 		
+//		Class<?> c = null;
+//		try {
+//			c = Class.forName("clazz.Book");
+//		} catch (ClassNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+
 		try {
 			Field chap = c.getDeclaredField("chapters");
 			
