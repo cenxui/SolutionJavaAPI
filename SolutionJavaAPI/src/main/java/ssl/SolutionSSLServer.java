@@ -1,21 +1,10 @@
 package ssl;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
+import java.io.OutputStream;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
 
-import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLServerSocket;
@@ -32,14 +21,17 @@ public class SolutionSSLServer {
 		try {
 		    
 		    KeyStore ks = KeyStore.getInstance("JKS");
-		    ks.load(new FileInputStream("/Users/cenxui/Documents/key/keystore.jks"), "authorisation".toCharArray());
+		    ks.load(new FileInputStream("/Users/cenxui/Documents/key/ssl/serverkeystore.jks"), "support".toCharArray());
 
 		    KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
-		    kmf.init(ks, "authorisation".toCharArray());
+		    kmf.init(ks, "support".toCharArray());
 
+		    KeyStore ts = KeyStore.getInstance("JKS");
+		    ts.load(new FileInputStream("/Users/cenxui/Documents/key/ssl/servertruststore.jks"), "support".toCharArray());
+		    
 		    TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509"); 
-		    tmf.init(ks);
-
+		    tmf.init(ts);
+		 
 		    SSLContext sc = SSLContext.getInstance("TLS"); 
 		    TrustManager[] trustManagers = tmf.getTrustManagers(); 
 		    sc.init(kmf.getKeyManagers(), trustManagers, null); 
@@ -48,18 +40,18 @@ public class SolutionSSLServer {
 		    SSLServerSocket s = (SSLServerSocket) ssf.createServerSocket(10000);
 		    SSLSocket c = (SSLSocket) s.accept();
 		    
-		   
-		    BufferedWriter writer = new BufferedWriter(
-					new OutputStreamWriter(c.getOutputStream(), StandardCharsets.UTF_8));
-		    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-		    writer.write("Hello World");
-		    writer.flush();
-//		    
-//		    for(;;) { 	
-//		    	writer.write(reader.readLine());
-//				writer.flush();
-//		    }
-	
+		    InputStream in = c.getInputStream();
+		    OutputStream ou = c.getOutputStream();
+		    
+		    ou.write("Hello World".getBytes());
+		    
+		    for(;;) { 	
+				int r = in.read();
+				if (r != -1) {
+					System.out.print((char)r);
+				}
+				
+		    }
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
