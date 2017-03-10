@@ -25,13 +25,9 @@ public class Activity {
 	public void onRunning() {
 //      This is UI Thread;
 		while(isRunning) {
-//			handler.setMassage("hi my name is Mia");
-			handler.handleMassage();
-			
-			
+			Handler.queue.poll();
 			
 		}
-		
 		
 	}
 
@@ -72,19 +68,19 @@ public class Activity {
 		activity.onDestory();
 	}
 	
-	private class Handler {
-		Queue<Runnable> queue = new LinkedBlockingQueue<>();
+	public static class Handler {
+		private static Queue<Runnable> queue = new LinkedBlockingQueue<>();
 		
-		public void setMassage() {
-			queue.add(message);
+		final public void sendMassage(String message) {
+			queue.add(()-> {
+				handleMassage(message);
+			});
 		}
 		
-		public void handleMassage() {
-			runnable.run();
-			queue.poll();
-		}
-		
-		public void 
+		public void handleMassage(String message) {
+			
+		}	
+	
 	}
 
 	private static class Intent {
