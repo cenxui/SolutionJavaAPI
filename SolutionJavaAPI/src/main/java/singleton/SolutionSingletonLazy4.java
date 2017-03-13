@@ -3,13 +3,25 @@ package singleton;
 import org.junit.runner.notification.RunListener.ThreadSafe;
 
 /**
- * This singleton class is lazy initialize and thread safe with good efficiency/
+ * This singleton class is lazy initialize and thread safe with good efficiency.
+ * 
+ * Remember that the singleton class key point.
+ * 
+ * private constructor
+ * 
+ * static method to access static object.
+ * 
+ * lazy initialize when need and beware of thread safe
+ * 
+ * never implement cloneable, we means that never let it can be clone and instantiate.
+ * 
+ * 
  * @author cenxui
  *
  */
 
 @ThreadSafe
-class SolutionSingletonLazy4 {
+public class SolutionSingletonLazy4 {
 	
 	private SolutionSingletonLazy4() {
 		// TODO Auto-generated constructor stub
