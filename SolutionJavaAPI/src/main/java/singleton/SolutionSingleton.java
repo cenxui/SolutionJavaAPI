@@ -1,5 +1,8 @@
 package singleton;
 
+import org.junit.runner.notification.RunListener.ThreadSafe;
+
+@ThreadSafe
 public class SolutionSingleton {
 
 	private static final SolutionSingleton instance = new SolutionSingleton();
