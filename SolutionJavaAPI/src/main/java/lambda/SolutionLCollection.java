@@ -12,7 +12,6 @@ public class SolutionLCollection {
 //		list.replaceAll(operator);
 		Collection<Integer> collection;
 		Map<String, Integer> map;
-		map.
 	}
 
 }

@@ -7,8 +7,7 @@ import java.util.List;
 public class SolutionGenericArray {
 
 	public static void main(String[] args) {
-		
-
+		System.out.print("work");
 	}
 	
 	static  <E> Object reduce(List<E> list, Function<E> function, E initial) {

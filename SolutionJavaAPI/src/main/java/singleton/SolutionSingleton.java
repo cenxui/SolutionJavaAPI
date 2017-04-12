@@ -8,7 +8,6 @@ public class SolutionSingleton {
 	private static final SolutionSingleton instance = new SolutionSingleton();
 	
 	private SolutionSingleton() {
-		//throw new AssertionError();
 	}
 	
 	

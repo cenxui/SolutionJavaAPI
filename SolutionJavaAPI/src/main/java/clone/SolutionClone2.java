@@ -19,7 +19,8 @@ public class SolutionClone2 {
 		System.out.println("a.b set new name");
 		System.out.println("a.b : " + a.getB().getName());
 		System.out.println("a1.b : " + a1.getB().getName());// if you don't implement the clone method recursively, this will print new name
-
+//		C c = new C();
+//		c.clone();
 	}
 	
 	static class A implements Cloneable {
@@ -67,6 +68,14 @@ public class SolutionClone2 {
 		public void setName(String name) {
 			this.name = name;
 		}
+		
+	}
+	
+	/*
+	 * if we don't implement clone method the class won't be cloneable.  
+	 */
+	
+	static class C implements Cloneable {
 		
 	}
 }
