@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Documented
 @Inherited
 @Retention(RetentionPolicy.SOURCE)
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE, ElementType.CONSTRUCTOR})
 public @interface Fruits {
 	FruitType type();
 	String[] regions();
