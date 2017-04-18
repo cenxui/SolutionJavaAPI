@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SolutionJavaAPI.iml" filepath="$PROJECT_DIR$/SolutionJavaAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SolutionJavaAPI_main.iml" filepath="$PROJECT_DIR$/.idea/modules/SolutionJavaAPI_main.iml" group="SolutionJavaAPI" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SolutionJavaAPI_test.iml" filepath="$PROJECT_DIR$/.idea/modules/SolutionJavaAPI_test.iml" group="SolutionJavaAPI" />
+    </modules>
+  </component>
+</project>
